@@ -82,24 +82,24 @@ with col2:
 
         # Trinkstärke
         if drinking_power > 5.5:
-            drinking_modifier = 1 + (drinking_power - 5.5) * 0.05
+            drinking_modifier = 1 + (drinking_power - 5.5) * 0.12
         else:
-            drinking_modifier = 1 - (5.5 - drinking_power) * 0.05
+            drinking_modifier = 1 - (5.5 - drinking_power) * 0.12
 
         # Swag (geringerer Einfluss)
         if swag > 5.5:
-            swag_modifier = 1 + (swag - 5.5) * 0.01
+            swag_modifier = 1 + (swag - 5.5) * 0.07
         else:
-            swag_modifier = 1 - (5.5 - swag) * 0.01
+            swag_modifier = 1 - (5.5 - swag) * 0.07
 
         # Spezialfall: Maximalwerte
         if drinking_power == 10.0 and swag == 10.0:
-            st.success("Du solltest ca. 1 million beers trinken 🍻")
+            st.success("Du solltest ca. 1 million beers trinken 🍻 Mahlzeit")
         else:
             # Berechnung
             base_score = height_factor + weight_factor + gender_factor + 0.225  # +0.225 für drinking_power Basiswert
             wine_amount = ref["base"] * base_score * drinking_modifier * swag_modifier / 0.9  # /0.9 um Swag einzurechnen
-            st.success(f"Du solltest ca. {wine_amount:.2f} Liter Wein trinken 🍷")
+            st.success(f"Du solltest ca. {wine_amount:.2f} Liter Wein trinken 🍷 - du geile Sau")
 
 with col3:
     rotated_image("Wein2.png", 10)
